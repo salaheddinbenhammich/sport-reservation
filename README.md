@@ -1,32 +1,23 @@
-# Football Reservation App (GoalTime)<br>
+# Football Reservation App (GoalTime)
 
+## 🌐 Live Application
+**URL:**  
+👉 https://sport-reservation-cyan.vercel.app/
 
-<br>
-voila qlq screens de nos pages :<br>
+---
 
-**Login Page :** <br>
+## 👤 Test User Credentials
+Use the following account to test authenticated user features:
 
-![App Logo](Screenshots/Login%20Page.jpg)<br>
-<br>
-**- Login Page : Si on fait une erreur dans une Input:** <br>
+- **Email:** test@gmail.com  
+- **Password:** Test-2025  
 
-![App Logo](Screenshots/Login%20Page%202.jpg)<br>
-<br>
-**- Register Page :** <br>
+---
 
-![App Logo](Screenshots/sign%20up.jpg)<br>
-<br>
-**- Home Page (En cours):** <br>
+## 🛠️ Admin Panel
+**Admin Dashboard:**  
+👉 https://sport-reservation-cyan.vercel.app/admin/dashboard
 
-![App Logo](Screenshots/home%20page.jpg)<br>
-
-<br>
-
-![App Logo](Screenshots/home%20page%202.jpg)<br>
-
-<br>
-
-![App Logo](Screenshots/home%20page%203.jpg)<br>
-
-<br>
-
+**Admin Credentials:**
+- **Email:** admin@gmail.com  
+- **Password:** Admin-2025  
