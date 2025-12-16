@@ -1,0 +1,72 @@
+@import "react-datepicker/dist/react-datepicker.css";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.react-datepicker {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.react-datepicker__header {
+  background-color: #10b981; /* Tailwind green-500 */
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #16a34a !important; /* Tailwind green-600 */
+  color: white !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #22c55e !important; /* Tailwind green-500 */
+  color: white !important;
+}
+
+.react-datepicker__input-container input::placeholder {
+  color: #9ca3af; /* Tailwind gray-400 */
+  opacity: 0.8;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+/* Credit card font look */
+.card-font {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+
+.card-shine {
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent 60%);
+  mix-blend-mode: overlay;
+}
+
+.card-glow {
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.35);
+}
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Frontend-Backend Connection</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Frontend-Backend Connection Test</h1>
+    
+    <div id="health-status" class="test-result">Testing backend health...</div>
+    
+    <h2>Authentication Test</h2>
+    <form id="register-form">
+        <h3>Register New User</h3>
+        <input type="text" id="username" placeholder="Username" required><br><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <input type="password" id="password" placeholder="Password" required><br><br>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br><br>
+        <input type="tel" id="phoneNumber" placeholder="Phone Number" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+    
+    <div id="register-result" class="test-result" style="display: none;"></div>
+    
+    <form id="login-form">
+        <h3>Login</h3>
+        <input type="email" id="loginEmail" placeholder="Email" required><br><br>
+        <input type="password" id="loginPassword" placeholder="Password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    
+    <div id="login-result" class="test-result" style="display: none;"></div>
+
+    <script>
+        // Test backend health
+        fetch('/api/health')
+            .then(res => res.json())
+            .then(data => {
+                const statusDiv = document.getElementById('health-status');
+                statusDiv.className = 'test-result success';
+                statusDiv.innerHTML = `✅ Backend Health: ${JSON.stringify(data)}`;
+            })
+            .catch(err => {
+                const statusDiv = document.getElementById('health-status');
+                statusDiv.className = 'test-result error';
+                statusDiv.innerHTML = `❌ Backend Error: ${err.message}`;
+            });
+
+        // Register form handler
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                phoneNumber: document.getElementById('phoneNumber').value
+            };
+
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById('register-result');
+                resultDiv.style.display = 'block';
+                
+                if (response.ok) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `✅ Registration Success: ${JSON.stringify(result)}`;
+                } else {
+                    resultDiv.className = 'test-result error';
+                    resultDiv.innerHTML = `❌ Registration Error: ${JSON.stringify(result)}`;
+                }
+            } catch (error) {
+                const resultDiv = document.getElementById('register-result');
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `❌ Registration Error: ${error.message}`;
+            }
+        });
+
+        // Login form handler
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                email: document.getElementById('loginEmail').value,
+                password: document.getElementById('loginPassword').value
+            };
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById('login-result');
+                resultDiv.style.display = 'block';
+                
+                if (response.ok) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `✅ Login Success: ${JSON.stringify(result)}`;
+                } else {
+                    resultDiv.className = 'test-result error';
+                    resultDiv.innerHTML = `❌ Login Error: ${JSON.stringify(result)}`;
+                }
+            } catch (error) {
+                const resultDiv = document.getElementById('login-result');
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `❌ Login Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
+
