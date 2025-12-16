@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import localGif from "../assets/no-reservation.gif";
 
 
 interface EmptyStateProps {
@@ -22,15 +21,15 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   return (
     <div className="flex flex-col items-center justify-center text-center animate-fade-in">
       <img
-        src={localGif}
+        src="/images/no-reservation.gif"
         alt="No reservations"
-        className="w-64 h-64 object-contain opacity-90"
+        className="object-contain w-64 h-64 opacity-90"
       />
-      <h2 className="text-2xl font-bold text-emerald-700 mb-2">{title}</h2>
-      <p className="text-neutral-600 mb-6">{subtitle}</p>
+      <h2 className="mb-2 text-2xl font-bold text-emerald-700">{title}</h2>
+      <p className="mb-6 text-neutral-600">{subtitle}</p>
       <button
         onClick={() => navigate(buttonLink)}
-        className="px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold shadow hover:bg-emerald-700 transition"
+        className="px-6 py-3 font-semibold text-white transition rounded-full shadow bg-emerald-600 hover:bg-emerald-700"
       >
         {buttonText}
       </button>
