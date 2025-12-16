@@ -63,7 +63,7 @@ const Login: React.FC = () => {
         <div
           className="relative flex flex-col items-center justify-center w-full bg-center bg-cover md:w-1/2"
           style={{
-            backgroundImage: "url('/src/assets/maradona.png')",
+            backgroundImage: "url('/images/maradona.png')",
           }}
         >
           <form
