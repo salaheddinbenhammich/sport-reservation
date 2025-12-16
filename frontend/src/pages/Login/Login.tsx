@@ -50,12 +50,12 @@ const Login: React.FC = () => {
   return (
     <div
       className="relative flex items-center justify-center min-h-screen p-2 bg-center bg-no-repeat bg-cover"
-      style={{ backgroundImage: "url('/src/assets/test.jpg')" }}
+      style={{ backgroundImage: "url('/images/test.jpg')" }}
     >
       <div className="absolute inset-0 z-0 bg-black/40" />
       <div className="relative z-10 flex h-[90vh] w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl bg-white">
         <div className="relative hidden w-1/2 bg-center bg-cover md:flex"
-          style={{ backgroundImage: "url('/src/assets/panel.png')" }}>
+          style={{ backgroundImage: "url('/images/panel.png')" }}>
           <div className="absolute z-10 w-full text-sm text-center text-white bottom-4 right-7 opacity-80">
             Developed by <span className="font-semibold">Salaheddin</span>!
           </div>

@@ -8,11 +8,11 @@ const Home = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/src/assets/stadium1.jpg",
-    "/src/assets/stadium2.jpg",
-    "/src/assets/stadium3.jpg",
-    "/src/assets/stadium4.jpg",
-    "/src/assets/stadium5.jpg",
+    "/images/stadium1.jpg",
+    "/images/stadium2.jpg",
+    "/images/stadium3.jpg",
+    "/images/stadium4.jpg",
+    "/images/stadium5.jpg",
   ];
 
   useEffect(() => {
