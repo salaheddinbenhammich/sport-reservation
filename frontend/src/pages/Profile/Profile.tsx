@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import ArtisticCalendar from "../../components/ArtisticCalendar";
 import { updateUserProfile } from "../../services/userService";
 import { useToastContext } from "../../context/ToastProvider";
-import bgImage from "../../assets/test.jpg";
+
 
 // Format phone numbers nicely
 const formatPhoneNumber = (phone: string): string => {
@@ -48,15 +48,15 @@ const Profile: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="relative min-h-screen flex flex-col overflow-hidden">
+      <div className="relative flex flex-col min-h-screen overflow-hidden">
         {/* 🌆 Full-page blurred background */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-center bg-cover"
           style={{
-            backgroundImage: `url(${bgImage})`,
+            backgroundImage: "url('/images/test.jpg')",
             filter: "blur(20px) brightness(0.85)",
             transform: "scale(1.1)",
           }}
@@ -65,22 +65,22 @@ const Profile: React.FC = () => {
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
 
-          <div className="flex-1 flex items-center justify-center px-6 pt-28 pb-2">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-6xl">
+          <div className="flex items-center justify-center flex-1 px-6 pb-2 pt-28">
+            <div className="flex flex-col items-center justify-center w-full max-w-6xl gap-10 md:flex-row">
               {/* LEFT SIDEBAR SKELETON */}
               <div
                 className={`rounded-3xl border border-emerald-300/40 dark:border-emerald-800 bg-white/95 dark:bg-emerald-950/60 backdrop-blur-2xl shadow-lg w-80 overflow-hidden ${turfGlow}`}
               >
                 <div className="flex flex-col items-center p-6 border-b border-emerald-200/50 dark:border-emerald-800">
-                  <Skeleton className="w-20 h-20 rounded-full mb-4" />
-                  <Skeleton className="h-4 w-32 mb-2" />
-                  <Skeleton className="h-3 w-40" />
+                  <Skeleton className="w-20 h-20 mb-4 rounded-full" />
+                  <Skeleton className="w-32 h-4 mb-2" />
+                  <Skeleton className="w-40 h-3" />
                 </div>
                 <div className="flex flex-col p-4 space-y-3">
                   <Skeleton className="h-10 rounded-xl" />
                   <Skeleton className="h-10 rounded-xl" />
                   <Skeleton className="h-10 rounded-xl" />
-                  <Skeleton className="h-10 rounded-xl bg-red-100" />
+                  <Skeleton className="h-10 bg-red-100 rounded-xl" />
                 </div>
               </div>
 
@@ -91,8 +91,8 @@ const Profile: React.FC = () => {
                 <div className="flex items-center gap-4 mb-8">
                   <Skeleton className="w-16 h-16 rounded-full" />
                   <div className="flex flex-col gap-2">
-                    <Skeleton className="h-4 w-32" />
-                    <Skeleton className="h-3 w-40" />
+                    <Skeleton className="w-32 h-4" />
+                    <Skeleton className="w-40 h-3" />
                   </div>
                 </div>
 
@@ -100,15 +100,15 @@ const Profile: React.FC = () => {
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
-                      className="flex justify-between items-center border-b border-emerald-100 pb-3"
+                      className="flex items-center justify-between pb-3 border-b border-emerald-100"
                     >
-                      <Skeleton className="h-3 w-24" />
-                      <Skeleton className="h-4 w-48" />
+                      <Skeleton className="w-24 h-3" />
+                      <Skeleton className="w-48 h-4" />
                     </div>
                   ))}
                 </div>
 
-                <div className="flex justify-between mt-8 gap-4">
+                <div className="flex justify-between gap-4 mt-8">
                   <Skeleton className="w-1/2 h-10 rounded-2xl" />
                   <Skeleton className="w-1/2 h-10 rounded-2xl" />
                 </div>
@@ -293,7 +293,7 @@ const Profile: React.FC = () => {
     passwordData.confirm === "" || passwordData.new === passwordData.confirm;
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
+    <div className="relative flex flex-col min-h-screen overflow-hidden">
       {/* 🌆 Background */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -310,12 +310,12 @@ const Profile: React.FC = () => {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        <div className="flex-1 flex items-center justify-center px-6 pt-28 pb-10">
+        <div className="flex items-center justify-center flex-1 px-6 pb-10 pt-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 220, damping: 22 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-6xl"
+            className="flex flex-col items-center justify-center w-full max-w-6xl gap-10 md:flex-row"
           >
             {/* ===== LEFT SIDEBAR ===== */}
             <motion.div
@@ -328,9 +328,9 @@ const Profile: React.FC = () => {
                 <img
                   src={formData.profileImage}
                   alt="User"
-                  className="w-20 h-20 rounded-full object-cover border-4 border-emerald-300/60 cursor-pointer"
+                  className="object-cover w-20 h-20 border-4 rounded-full cursor-pointer border-emerald-300/60"
                 />
-                <h3 className="mt-4 font-semibold text-gray-800 dark:text-emerald-100 text-lg">
+                <h3 className="mt-4 text-lg font-semibold text-gray-800 dark:text-emerald-100">
                   {formData.username}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-emerald-300">{formData.email}</p>
@@ -368,7 +368,7 @@ const Profile: React.FC = () => {
 
                 <button
                   onClick={() => navigate("/reservations")}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/30 text-gray-700 dark:text-emerald-100 font-medium transition"
+                  className="flex items-center justify-between p-3 font-medium text-gray-700 transition rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/30 dark:text-emerald-100"
                 >
                   <div className="flex items-center gap-3">
                     <CalendarIcon className="w-5 h-5" />
@@ -382,7 +382,7 @@ const Profile: React.FC = () => {
                     await logout();
                     setTimeout(() => navigate("/"), 0.0001);
                   }}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/30 text-gray-700 dark:text-red-400 font-medium transition"
+                  className="flex items-center justify-between p-3 font-medium text-gray-700 transition rounded-xl hover:bg-red-50 dark:hover:bg-red-900/30 dark:text-red-400"
                 >
                   <div className="flex items-center gap-3 text-red-500 dark:text-red-400">
                     <LogOut className="w-5 h-5" />
@@ -414,15 +414,15 @@ const Profile: React.FC = () => {
                           : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                       }
                       alt="Profile"
-                      className="w-16 h-16 rounded-full object-cover border-4 border-emerald-300/60 cursor-pointer"
+                      className="object-cover w-16 h-16 border-4 rounded-full cursor-pointer border-emerald-300/60"
                       onClick={handleProfilePictureChange}
                       title="Change picture"
                     />
                     <div>
-                      <h3 className="font-semibold text-gray-800 dark:text-emerald-100 text-lg">
+                      <h3 className="text-lg font-semibold text-gray-800 dark:text-emerald-100">
                         {formData.username}
                       </h3>
-                      <p className="text-gray-500 dark:text-emerald-300 text-sm">
+                      <p className="text-sm text-gray-500 dark:text-emerald-300">
                         {formData.email}
                       </p>
                     </div>
@@ -436,9 +436,9 @@ const Profile: React.FC = () => {
                       ({ label, key }) => (
                         <div
                           key={key}
-                          className="flex justify-between items-center border-b border-emerald-100 dark:border-emerald-800 pb-3 relative"
+                          className="relative flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-emerald-800"
                         >
-                          <p className="text-gray-500 dark:text-emerald-300 text-sm">
+                          <p className="text-sm text-gray-500 dark:text-emerald-300">
                             {label}
                           </p>
                           {editMode ? (
@@ -461,10 +461,10 @@ const Profile: React.FC = () => {
                                         : ""
                                     }
                                     onClick={() => setShowCal((s) => !s)}
-                                    className="font-secular font-semibold text-gray-800 dark:text-emerald-100 text-right bg-transparent focus:outline-none cursor-pointer w-full"
+                                    className="w-full font-semibold text-right text-gray-800 bg-transparent cursor-pointer font-secular dark:text-emerald-100 focus:outline-none"
                                   />
                                   <CalendarIcon
-                                    className="w-5 h-5 text-emerald-600 ml-2 cursor-pointer"
+                                    className="w-5 h-5 ml-2 cursor-pointer text-emerald-600"
                                     onClick={() => setShowCal((s) => !s)}
                                   />
                                 </div>
@@ -510,11 +510,11 @@ const Profile: React.FC = () => {
                                     [key]: e.target.value,
                                   })
                                 }
-                                className="font-secular font-semibold text-gray-800 dark:text-emerald-100 text-right w-52 bg-transparent focus:outline-none focus:ring-0"
+                                className="font-semibold text-right text-gray-800 bg-transparent font-secular dark:text-emerald-100 w-52 focus:outline-none focus:ring-0"
                               />
                             )
                           ) : (
-                            <p className="font-secular font-semibold text-gray-800 dark:text-emerald-100 w-52 text-right tracking-wide">
+                            <p className="font-semibold tracking-wide text-right text-gray-800 font-secular dark:text-emerald-100 w-52">
                               {key === "birthDate" && formData.birthDate
                                 ? new Date(formData.birthDate).toLocaleDateString("en-GB", {
                                     day: "2-digit",
@@ -531,9 +531,9 @@ const Profile: React.FC = () => {
                     )}
 
                     {/* Member Since */}
-                    <div className="flex justify-between items-center border-b border-emerald-100 dark:border-emerald-800 pb-3">
-                      <p className="text-gray-500 dark:text-emerald-300 text-sm">Member Since</p>
-                      <p className="font-secular font-semibold text-gray-800 dark:text-emerald-100 w-52 text-right tracking-wide">
+                    <div className="flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-emerald-800">
+                      <p className="text-sm text-gray-500 dark:text-emerald-300">Member Since</p>
+                      <p className="font-semibold tracking-wide text-right text-gray-800 font-secular dark:text-emerald-100 w-52">
                         {new Date(createdAt).toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "short",
@@ -546,21 +546,21 @@ const Profile: React.FC = () => {
                   {!editMode ? (
                     <button
                       onClick={() => setEditMode(true)}
-                      className="mt-8 w-full bg-emerald-600 text-white py-3 rounded-2xl font-semibold hover:bg-emerald-700 transition-all shadow-md"
+                      className="w-full py-3 mt-8 font-semibold text-white transition-all shadow-md bg-emerald-600 rounded-2xl hover:bg-emerald-700"
                     >
                       Edit Profile
                     </button>
                   ) : (
-                    <div className="flex justify-between mt-8 gap-4">
+                    <div className="flex justify-between gap-4 mt-8">
                       <button
                         onClick={handleCancel}
-                        className="w-1/2 bg-gray-200 dark:bg-emerald-900/50 dark:text-emerald-100 text-gray-700 py-3 rounded-2xl font-semibold hover:bg-gray-300 dark:hover:bg-emerald-900/70 transition-all"
+                        className="w-1/2 py-3 font-semibold text-gray-700 transition-all bg-gray-200 dark:bg-emerald-900/50 dark:text-emerald-100 rounded-2xl hover:bg-gray-300 dark:hover:bg-emerald-900/70"
                       >
                         Cancel
                       </button>
                       <button
                         onClick={handleSave}
-                        className="w-1/2 bg-emerald-600 text-white py-3 rounded-2xl font-semibold hover:bg-emerald-700 transition-all"
+                        className="w-1/2 py-3 font-semibold text-white transition-all bg-emerald-600 rounded-2xl hover:bg-emerald-700"
                       >
                         Save
                       </button>
@@ -596,7 +596,7 @@ const Profile: React.FC = () => {
 
                         return (
                           <div key={field} className="flex flex-col">
-                            <label className="text-gray-600 dark:text-emerald-300 mb-1 text-sm">
+                            <label className="mb-1 text-sm text-gray-600 dark:text-emerald-300">
                               {label}
                             </label>
                             <div className="relative">
@@ -650,7 +650,7 @@ const Profile: React.FC = () => {
                                 initial={{ opacity: 0, y: -4 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -4 }}
-                                className="text-red-500 text-sm mt-1"
+                                className="mt-1 text-sm text-red-500"
                               >
                                 {passwordErrors.new}
                               </motion.p>
@@ -660,7 +660,7 @@ const Profile: React.FC = () => {
                                 initial={{ opacity: 0, y: -4 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -4 }}
-                                className="text-red-500 text-sm mt-1"
+                                className="mt-1 text-sm text-red-500"
                               >
                                 Passwords do not match
                               </motion.p>
