@@ -49,7 +49,7 @@ const Profile: React.FC = () => {
   if (loading) {
     return (
       <div className="relative flex flex-col min-h-screen overflow-hidden">
-        {/* 🌆 Full-page blurred background */}
+        {/* Full-page blurred background */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -294,14 +294,14 @@ const Profile: React.FC = () => {
 
   return (
     <div className="relative flex flex-col min-h-screen overflow-hidden">
-      {/* 🌆 Background */}
+      {/* Background */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-black to-emerald-900 dark:from-emerald-950 dark:via-black dark:to-emerald-900"
         style={{
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: "url('/images/test.jpg')",
           filter: "blur(6px) brightness(0.85)",
         }}
       ></motion.div>
